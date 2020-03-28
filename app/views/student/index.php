@@ -2,6 +2,12 @@
 
     <h2>List Students</h2>
 
+    <div class="row">
+        <div class="col-lg-6">
+            <?php Flasher::flash(); ?>
+        </div>
+    </div>
+
     <a href="#" class="btn btn-info" data-toggle="modal" data-target="#formModal">Add Student</a>
 
     <table class="table mt-3">
@@ -25,8 +31,8 @@
                     <td><?= $student['email']; ?></td>
                     <td><?= $student['majors']; ?></td>
                     <td>
-                        <a href="" class="badge badge-success">Edit</a>
-                        <a href="" class="badge badge-danger">Delete</a>
+                        <a href="<?= base_url ?>/student/edit/<?= $student['id']; ?>" class="badge badge-success">Edit</a>
+                        <a href="<?= base_url ?>/student/delete/<?= $student['id']; ?>" class="badge badge-danger">Delete</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
