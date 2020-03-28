@@ -32,7 +32,7 @@
                     <td><?= $student['majors']; ?></td>
                     <td>
                         <a href="<?= base_url ?>/student/edit/<?= $student['id']; ?>" class="badge badge-success">Edit</a>
-                        <a href="<?= base_url ?>/student/delete/<?= $student['id']; ?>" class="badge badge-danger">Delete</a>
+                        <a href="<?= base_url ?>/student/delete/<?= $student['id']; ?>" onclick="return confirm('delete data?');" class="badge badge-danger">Delete</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
