@@ -8,7 +8,7 @@
         </div>
     </div>
 
-    <a href="#" class="btn btn-info" data-toggle="modal" data-target="#formModal">Add Student</a>
+    <a href="#" class="btn btn-info buttonAddData" data-toggle="modal" data-target="#formModal">Add Student</a>
 
     <table class="table mt-3">
         <thead class="thead-dark">
@@ -31,8 +31,8 @@
                     <td><?= $student['email']; ?></td>
                     <td><?= $student['majors']; ?></td>
                     <td>
-                        <a href="<?= base_url ?>/student/edit/<?= $student['id']; ?>" class="badge badge-success">Edit</a>
-                        <a href="<?= base_url ?>/student/delete/<?= $student['id']; ?>" onclick="return confirm('delete data?');" class="badge badge-danger">Delete</a>
+                        <a href="<?= base_url ?>/student/edit/<?= $student['id']; ?>" class="badge badge-success showModalEdit" data-toggle="modal" data-id="<?= $student['id']; ?>" data-target="#formModal">Edit</a>
+                        <a href="<?= base_url ?>/student/delete/<?= $student['id']; ?>"  onclick="return confirm('delete data?');" class="badge badge-danger">Delete</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
@@ -50,8 +50,9 @@
       <div class="modal-header">
         <h5 class="modal-title" id="formModalLabel">Add Student</h5>
       </div>
-      <form action="<?= base_url; ?>/student/add" method="POST">
       <div class="modal-body">
+      <form action="<?= base_url; ?>/student/add" method="POST">
+        <input type="hidden" id="id" name="id">
         <div class="form-group">
             <label for="name">Fullname</label>
             <input type="text" class="form-control" id="name" name="name" placeholder="ex: Ivih Lutfiah">
@@ -72,12 +73,12 @@
             <option value="Multimedia">Multimedia</option>
             </select>
         </div>
-        </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             <button type="submit" class="btn btn-primary">Add</button>
         </div>
       </form>
+      </div>
     </div>
   </div>
 </div>

@@ -41,4 +41,22 @@ class Student extends Controller {
         }
     }
 
+    public function getedit()
+    {
+        echo json_encode($this->model('Student_model')->getStudentById($_POST['id']));
+    }
+
+    public function edit()
+    {
+        if ( $this->model('Student_model')->editDataStudent($_POST) > 0 ) {
+            Flasher::setFlash('success', 'to edit', 'success');
+            header('Location: ' . base_url . '/student');
+            exit;
+        } else {
+            Flasher::setFlash('failed', 'to edit', 'danger');
+            header('Location: ' . base_url . '/student');
+            exit;
+        }
+    }
+
 }
